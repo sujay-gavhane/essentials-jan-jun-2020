@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- after banner -->
+<div class="event" id="event">
+    <div class="container">
+        <div class="default-heading">
+            <!-- heading -->
+            <h2>Upcoming Blogs</h2>
+        </div>
+        <div class="row">
+            {% for b in unpublished_blogs %}
+                <div class="col-md-4 col-sm-4">
+                   <!-- event item -->
+                    <div class="event-item">
+                        <!-- image -->
+                        <img class="img-responsive" src={{b.image}} alt="Events"/>
+                        <!-- heading -->
+                        <h4><a href="{% url 'blog_detail' blog_id=b.id %}">{{b.title}}</a></h4>
+                        <!-- sub text -->
+                        <span class="sub-text">{{b.description}}</span>
+                        <!-- paragraph -->
+                        <span class="meta">
+							{{b.created_at}} | By: {{ b.creator.first_name | title }}
+						</span>
+                        <p>{{b.description}}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<!-- after banner end-->
+
+<!-- events -->
+<div class="blog" id="blog">
+    <div class="container">
+        <div class="default-heading">
+            <!-- heading -->
+            <h2>Latest Blogs</h2>
+        </div>
+        <div class="row">
+            {% for b in published_blogs %}
+                <div class="col-md-6 col-sm-6">
+                    <!-- blog entry -->
+                    <div class="entry">
+                        <!-- blog entry image -->
+                        <img class="img-responsive" src={{b.image}} alt="Blog"/>
+                        <!-- heading / blog post title -->
+                        <h3><a href="{% url 'blog_detail' blog_id=b.id %}">{{b.title}}</a></h3>
+                        <!-- blog information -->
+                        <span class="meta">
+							{{b.created_at}} | By: {{ b.creator.first_name | title }}
+						</span>
+                        <!-- paragraph -->
+                        <p>{{b.description}}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        <div class="text-center">
+            <a href="#" class="btn btn-default">See More</a>
+        </div>
+    </div>
+</div>
+<!-- events end -->
+
+<!-- blog -->
+<div class="subscribe" id="subscribe">
+    <div class="container">
+        <!-- subscribe content -->
+        <div class="sub-content">
+            <h3>Subscribe Here for Updates</h3>
+            <form role="form">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Email...">
+                    <span class="input-group-btn">
+										<button class="btn btn-default" type="button">Subscribe</button>
+									</span>
+                </div><!-- /input-group -->
+            </form>
+        </div>
+    </div>
+</div>
+<!-- blog end -->
+{% endblock %}

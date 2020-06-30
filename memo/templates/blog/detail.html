@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+<div>
+    <h4>{{blog.title}}</h4>
+    <span class="sub-text">{{b.description}}</span>
+    <span class="meta">
+        {{b.created_at}} | By: {{ b.creator.first_name | title }}
+    </span>
+    <p>
+        {{blog.body}}
+    </p>
+</div>
