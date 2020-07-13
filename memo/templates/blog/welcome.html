@@ -16,7 +16,7 @@
                         <!-- image -->
                         <img class="img-responsive" src={{b.image}} alt="Events"/>
                         <!-- heading -->
-                        <h4><a href="{% url 'blog_detail' blog_id=b.id %}">{{b.title}}</a></h4>
+                        <h4><a href="#">{{b.title}}</a></h4>
                         <!-- sub text -->
                         <span class="sub-text">{{b.description}}</span>
                         <!-- paragraph -->
@@ -47,7 +47,7 @@
                         <!-- blog entry image -->
                         <img class="img-responsive" src={{b.image}} alt="Blog"/>
                         <!-- heading / blog post title -->
-                        <h3><a href="{% url 'blog_detail' blog_id=b.id %}">{{b.title}}</a></h3>
+                        <h3><a href="#">{{b.title}}</a></h3>
                         <!-- blog information -->
                         <span class="meta">
 							{{b.created_at}} | By: {{ b.creator.first_name | title }}
